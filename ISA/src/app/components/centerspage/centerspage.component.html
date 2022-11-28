@@ -1,8 +1,5 @@
 <p>centerspage works!</p>
-<div>
-<input type="text" placeholder="Search..">
-<button>Search</button>
-</div>
+
 <label for="Centre">Choose:</label>
 
 <select name="Centre" id="Centre">
@@ -26,5 +23,23 @@
     <th>Centre grade</th>
     <th>City</th>
   </tr>
+  <tr *ngFor="let center of centres">
+      <td>{{center.name}}</td>
+      <td>{{center.address}}</td>
+      <td>{{center.longitude}}</td>
+      <td>{{center.latitude}}</td>
+      <td>{{center.description}}</td>
+      <td>{{center.centreGradeId}}</td>
+      <td>{{center.city}}</td>
+  </tr>
 
 </table>
+
+
+
+<div>
+    <input placeholder="Name" class="input-style" [formControlName]="'searchCentre.searchName'">
+    <input placeholder="Surname" class="input-style" [formControlName]="'searchCentre.searchAddress'">
+    <button mat-flat-button color="primary" style="width: 100px" (click)="search()">Search</button>
+</div> 
+
